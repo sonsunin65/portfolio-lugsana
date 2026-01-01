@@ -148,20 +148,20 @@ export function StatsEditor() {
                             </div>
 
                             <div className="md:col-span-3 space-y-2">
-                                <Label>ตัวเลข (Title)</Label>
+                                <Label>หัวข้อ (Title)</Label>
                                 <Input
                                     value={item.title}
                                     onChange={(e) => handleUpdate(index, "title", e.target.value)}
-                                    placeholder="เช่น 5"
+                                    placeholder="เช่น ประสบการณ์สอน"
                                 />
                             </div>
 
                             <div className="md:col-span-4 space-y-2">
-                                <Label>ข้อความ (Label)</Label>
+                                <Label>ตัวเลข/รายละเอียด (Label)</Label>
                                 <Input
                                     value={item.label}
                                     onChange={(e) => handleUpdate(index, "label", e.target.value)}
-                                    placeholder="เช่น รางวัลระดับชาติ"
+                                    placeholder="เช่น 8 ปี"
                                 />
                             </div>
 

@@ -174,8 +174,8 @@ export function CertificatesSection() {
               <Card key={stat.id} className="border-none shadow-soft bg-card animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CardContent className="p-6 text-center">
                   <Icon className={`w-8 h-8 ${stat.color_class} mx-auto mb-3`} />
-                  <div className="text-3xl font-bold text-foreground mb-1">{stat.title}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-3xl font-bold text-foreground mb-1">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.title}</div>
                 </CardContent>
               </Card>
             )
