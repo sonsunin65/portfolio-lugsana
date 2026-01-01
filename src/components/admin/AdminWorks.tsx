@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { SwalFire } from "@/utils/sweetalert";
-import { Pencil, Trash2, Plus } from "lucide-react";
+import { Pencil, Trash2, Plus, FileText, Presentation, Video, BookOpen, Star, MonitorPlay } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
     Dialog,
@@ -25,6 +25,24 @@ import {
 import { FileUploader } from "@/components/admin/FileUploader";
 
 import { Work } from "@/types";
+
+const ICONS = [
+    { name: "FileText", icon: FileText },
+    { name: "Presentation", icon: Presentation },
+    { name: "Video", icon: Video },
+    { name: "BookOpen", icon: BookOpen },
+    { name: "Star", icon: Star },
+    { name: "MonitorPlay", icon: MonitorPlay },
+];
+
+const COLORS = [
+    { name: "Primary (Red/Pink)", class: "bg-primary", bgClass: "bg-primary" },
+    { name: "Secondary (Blue)", class: "bg-secondary", bgClass: "bg-secondary" },
+    { name: "Coral (Orange)", class: "bg-coral", bgClass: "bg-coral" },
+    { name: "Mint (Green)", class: "bg-mint", bgClass: "bg-mint" },
+    { name: "Lavender (Purple)", class: "bg-lavender", bgClass: "bg-lavender" },
+    { name: "Accent (Dark Purple)", class: "bg-accent", bgClass: "bg-accent" },
+];
 
 export function AdminWorks() {
     const [works, setWorks] = useState<Work[]>([]);
@@ -190,27 +208,46 @@ export function AdminWorks() {
                                 <div>
                                     <Label>Icon Type</Label>
                                     <Select value={formData.icon_name} onValueChange={(v) => setFormData({ ...formData, icon_name: v })}>
-                                        <SelectTrigger><SelectValue /></SelectTrigger>
+                                        <SelectTrigger>
+                                            <div className="flex items-center gap-2">
+                                                {(() => {
+                                                    const IconData = ICONS.find(i => i.name === formData.icon_name);
+                                                    const Icon = IconData ? IconData.icon : FileText;
+                                                    return <Icon className="w-4 h-4" />;
+                                                })()}
+                                                <span>{formData.icon_name}</span>
+                                            </div>
+                                        </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="FileText">FileText</SelectItem>
-                                            <SelectItem value="Presentation">Presentation</SelectItem>
-                                            <SelectItem value="Video">Video</SelectItem>
-                                            <SelectItem value="BookOpen">BookOpen</SelectItem>
-                                            <SelectItem value="Star">Star</SelectItem>
+                                            {ICONS.map(icon => (
+                                                <SelectItem key={icon.name} value={icon.name}>
+                                                    <div className="flex items-center gap-2">
+                                                        <icon.icon className="w-4 h-4" />
+                                                        <span>{icon.name}</span>
+                                                    </div>
+                                                </SelectItem>
+                                            ))}
                                         </SelectContent>
                                     </Select>
                                 </div>
                                 <div>
                                     <Label>Color Theme</Label>
                                     <Select value={formData.color_class} onValueChange={(v) => setFormData({ ...formData, color_class: v })}>
-                                        <SelectTrigger><SelectValue /></SelectTrigger>
+                                        <SelectTrigger>
+                                            <div className="flex items-center gap-2">
+                                                <div className={`w-4 h-4 rounded-full ${COLORS.find(c => c.class === formData.color_class)?.bgClass || 'bg-primary'}`}></div>
+                                                <span>{COLORS.find(c => c.class === formData.color_class)?.name.split(' ')[0] || formData.color_class}</span>
+                                            </div>
+                                        </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="bg-primary">Primary</SelectItem>
-                                            <SelectItem value="bg-secondary">Secondary</SelectItem>
-                                            <SelectItem value="bg-coral">Coral</SelectItem>
-                                            <SelectItem value="bg-mint">Mint</SelectItem>
-                                            <SelectItem value="bg-lavender">Lavender</SelectItem>
-                                            <SelectItem value="bg-accent">Accent</SelectItem>
+                                            {COLORS.map(color => (
+                                                <SelectItem key={color.name} value={color.class}>
+                                                    <div className="flex items-center gap-2">
+                                                        <div className={`w-4 h-4 rounded-full ${color.bgClass}`}></div>
+                                                        <span>{color.name}</span>
+                                                    </div>
+                                                </SelectItem>
+                                            ))}
                                         </SelectContent>
                                     </Select>
                                 </div>
