@@ -44,6 +44,7 @@ export function AdminProfile() {
         pa_badge_text: "",
         google_map_url: "",
         footer_text: "",
+        contact_description: "",
     });
 
     useEffect(() => {
@@ -61,34 +62,35 @@ export function AdminProfile() {
             const profileData = data as Profile;
             setProfile({
                 full_name: profileData.full_name || "",
-                position: data.position || "",
-                bio: data.bio || "",
-                teaching_philosophy: data.teaching_philosophy || "",
-                stats_years: data.stats_years || "",
-                stats_students: data.stats_students || "",
-                stats_awards: data.stats_awards || "",
-                image_url: data.image_url || "",
-                email: data.email || "",
-                phone: data.phone || "",
-                address: data.address || "",
-                facebook: data.facebook || "",
-                facebook_url: data.facebook_url || "",
-                line_id: data.line_id || "",
-                line_url: data.line_url || "",
-                welcome_message_1: data.welcome_message_1 || "",
-                welcome_message_2: data.welcome_message_2 || "",
-                hero_badge_text: data.hero_badge_text || "",
-                about_short_description: data.about_short_description || "",
-                about_section_body: data.about_section_body || "",
-                works_description: data.works_description || "",
-                certificates_description: data.certificates_description || "",
-                activities_description: data.activities_description || "",
-                pa_description: data.pa_description || "",
-                pa_header_title: data.pa_header_title || "",
-                pa_header_subtitle: data.pa_header_subtitle || "",
-                pa_badge_text: data.pa_badge_text || "",
-                google_map_url: data.google_map_url || "",
-                footer_text: data.footer_text || "",
+                position: profileData.position || "",
+                bio: profileData.bio || "",
+                teaching_philosophy: profileData.teaching_philosophy || "",
+                stats_years: profileData.stats_years || "",
+                stats_students: profileData.stats_students || "",
+                stats_awards: profileData.stats_awards || "",
+                image_url: profileData.image_url || "",
+                email: profileData.email || "",
+                phone: profileData.phone || "",
+                address: profileData.address || "",
+                facebook: profileData.facebook || "",
+                facebook_url: profileData.facebook_url || "",
+                line_id: profileData.line_id || "",
+                line_url: profileData.line_url || "",
+                welcome_message_1: profileData.welcome_message_1 || "",
+                welcome_message_2: profileData.welcome_message_2 || "",
+                hero_badge_text: profileData.hero_badge_text || "",
+                about_short_description: profileData.about_short_description || "",
+                about_section_body: profileData.about_section_body || "",
+                works_description: profileData.works_description || "",
+                certificates_description: profileData.certificates_description || "",
+                activities_description: profileData.activities_description || "",
+                pa_description: profileData.pa_description || "",
+                pa_header_title: profileData.pa_header_title || "",
+                pa_header_subtitle: profileData.pa_header_subtitle || "",
+                pa_badge_text: profileData.pa_badge_text || "",
+                google_map_url: profileData.google_map_url || "",
+                footer_text: profileData.footer_text || "",
+                contact_description: profileData.contact_description || "",
             });
         }
     };
@@ -130,7 +132,8 @@ export function AdminProfile() {
                 pa_header_subtitle: profile.pa_header_subtitle,
                 pa_badge_text: profile.pa_badge_text,
                 google_map_url: profile.google_map_url,
-                footer_text: profile.footer_text
+                footer_text: profile.footer_text,
+                contact_description: profile.contact_description
             };
 
             let error;
@@ -396,6 +399,15 @@ export function AdminProfile() {
                                     value={profile.activities_description}
                                     onChange={(e) => setProfile({ ...profile, activities_description: e.target.value })}
                                     placeholder="ข้อความบรรยายใต้หัวข้อยิจกรรม"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label>คำอธิบายส่วนติดต่อ (Contact Section)</Label>
+                                <Textarea
+                                    className="h-20"
+                                    value={profile.contact_description}
+                                    onChange={(e) => setProfile({ ...profile, contact_description: e.target.value })}
+                                    placeholder="ข้อความเชิญชวนให้ติดต่อ สอบถาม หรือพูดคุย"
                                 />
                             </div>
                         </TabsContent>

@@ -18,6 +18,7 @@ export type Profile = Database["public"]["Tables"]["profiles"]["Row"] & {
     line_url?: string | null;
     google_map_url?: string | null;
     footer_text?: string | null;
+    contact_description?: string | null;
 };
 export type Work = Database["public"]["Tables"]["works"]["Row"];
 export type Stat = Database["public"]["Tables"]["stats"]["Row"];

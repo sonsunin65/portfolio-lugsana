@@ -81,7 +81,7 @@ export function ContactSection() {
             ติดต่อ<span className="text-gradient-primary">สอบถาม</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            มีคำถามหรืออยากพูดคุย? ติดต่อครูกฤษฎาได้เลยครับ ยินดีให้คำปรึกษาและตอบคำถามทุกข้อ
+            {profile?.contact_description || `มีคำถามหรืออยากพูดคุย? ติดต่อ${profile?.full_name ? `ครู${profile.full_name.split(' ')[0]}` : "ครู"}ได้เลยครับ ยินดีให้คำปรึกษาและตอบคำถามทุกข้อ`}
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function ContactSection() {
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
                 <Send className="w-5 h-5 text-primary" />
-                ส่งข้อความถึงครูกฤษฎา
+                ส่งข้อความถึง{profile?.full_name ? `ครู${profile.full_name.split(' ')[0]}` : "ครู"}
               </h3>
               <ContactForm />
             </CardContent>
