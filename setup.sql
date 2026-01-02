@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS public.profiles (
     pa_header_subtitle TEXT,
     pa_badge_text TEXT,
     footer_text TEXT,
+    footer_text TEXT,
+    contact_description TEXT DEFAULT 'มีคำถามหรืออยากพูดคุย? ติดต่อครูได้เลยครับ ยินดีให้คำปรึกษาและตอบคำถามทุกข้อ',
     google_map_url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
