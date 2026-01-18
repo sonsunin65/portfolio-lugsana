@@ -71,7 +71,7 @@ export function ActivitiesSection() {
             กิจกรรม<span className="text-gradient-primary">สร้างสรรค์</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            {profile?.activities_description || "กิจกรรมต่างๆ ที่ครูกฤษฎาจัดขึ้นเพื่อส่งเสริมการเรียนรู้และพัฒนาทักษะของนักเรียน ปีการศึกษา 2569"}
+            {profile?.activities_description || "กิจกรรมต่างๆ ที่จัดขึ้นเพื่อส่งเสริมการเรียนรู้และพัฒนาทักษะของนักเรียน ปีการศึกษา 2569"}
           </p>
         </div>
 
